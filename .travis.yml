@@ -1,0 +1,8 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+    - docker build -t medaligm/docker-reactjs -f Dockerfile.dev .
+script:
+    - docker run medaligm/docker-reactjs npm run test -- --coverage        
